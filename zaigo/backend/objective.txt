@@ -1,0 +1,66 @@
+Objective: 
+Build a secure task management system using Next.js (Frontend) and Node.js + 
+Express.js (Backend). The system should support: 
+●  User authentication (JWT-based with roles: Admin, User) 
+●  Task CRUD operations (with API validation) 
+●  Relational database structure (MongoDB or MySQL) 
+●  Secure API with OpenAPI (Swagger) documentation 
+●  Logical UI Handling (Pagination, Filters, Error Handling) 
+Task Details 
+1. Authentication & Authorization 
+● Implement JWT-based authentication (Login/Register). 
+● Store passwords securely using bcryptjs. 
+● Implement role-based access (Admin can manage users; Users can only 
+manage their tasks). 
+● Refresh Token Mechanism (Optional for better security). 
+Endpoints: 
+● POST /api/auth/register → Registers a user 
+● POST /api/auth/login → Authenticates and returns JWT 
+● POST /api/auth/refresh → Generates new access token 
+● GET /api/auth/me → Fetch logged-in user details 
+2. Database Schema (MongoDB or MySQL) 
+a. Users Table 
+Field  
+id  
+name  
+email 
+password 
+role 
+createdAt 
+b. Tasks Table 
+Field  
+id 
+title 
+description 
+status 
+assignedTo 
+createdBy 
+createdAt 
+3. Task CRUD (Express.js + OpenAPI) 
+● Task creation with validation (title required, status default: "Todo"). 
+● Only the task owner or admin can update/delete tasks. 
+● Implement Pagination & Filtering (GET /tasks?page=1&status=Completed). 
+● Use Joi/Zod for input validation. 
+● Document API using Swagger (OpenAPI). 
+Endpoints: 
+● POST /api/tasks → Create Task (Auth Required) 
+● GET /api/tasks → List All Tasks (Pagination, Filters) 
+● GET /api/tasks/:id → Get Task Details 
+● PUT /api/tasks/:id → Update Task (Only Creator/Admin) 
+● DELETE /api/tasks/:id → Delete Task (Only Creator/Admin) 
+4.  Frontend (Next.js + React + TailwindCSS) 
+Pages: 
+● Login Page (/login) 
+● Dashboard (/dashboard) (Shows logged-in user tasks) 
+● Task Details (/tasks/[id]) 
+● Admin Panel (/admin/users) (Only visible to Admin) 
+Features: 
+● Secure Routing: Protect pages using getServerSideProps + JWT. 
+● State Management: Use Redux Toolkit / Context API for user state. 
+● Error Handling: Show meaningful error messages. 
+● Table with Sorting & Filters: Show tasks in a clean table with status filters. 
+● Dark Mode (Bonus). 
+5. Submission Guidelines 
+● GitHub Repo with README.md 
+● Provide Postman Collection / Swagger Docs 
+● Demo Deployment Link (If Possible) 
